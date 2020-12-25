@@ -1,0 +1,217 @@
+#include <stdio.h> 
+#include <math.h>
+#include <string.h>
+#include <conio.h>
+#include <ctype.h>
+ 
+ 
+ 
+struct student
+{
+	char name[30]; //users can enter their name//
+	int age; //users can enter their age//
+};
+ 
+int main()
+{
+ 
+	struct student std;
+ 
+	printf("Enter name: ");
+	gets(std.name);
+	printf("Enter age: ");
+	scanf("%d", &std.age);
+	printf("\nName : %s \nage : %d \n", std.name, std.age);
+ 
+ 
+ 
+	// These 4 lines of code are the intorduction of the chatbot. 
+	printf("Hello and welcome to the chatbot %s\n", std.name);
+ 
+ 
+	// This gives the user the option to choose what pathway they would like to take 
+	char ToDo[50];
+	char a;
+ 
+	do {
+		printf("What would you like to do today?\n"" (1) General Conversation		(2) Learn a subject		(3) Exit\n");
+		printf("Please type the number option you would like to do \n");
+		scanf("%c", &a);
+	} while ((a != '1') && (a != '2') && (a != '3'));
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+	// the main body of the chatbot where most the printed content will be shown, using if else statements however to allow
+	//the user to choose the option. 
+	if (a == 1)
+ 
+	{
+		char choice[3];
+		char No[4];
+		char UniversityChoice[51];
+		printf("So, you chose to have a conversation with a computer\n ");   // introducing the idea of choice within the chatbot, if user picks yes then conversation route is redirected
+		printf("Do you currently attend university?\n");
+ 
+		scanf("%s", &choice);
+ 
+		if (!strcmp(&choice, "yes"))
+		{
+ 
+			printf("What university are you currently going to?\n");
+			scanf(" %[^\t\n]s", &UniversityChoice);
+ 
+ 
+			char UniSubject[30];
+			printf("Ooh thats interesting, what course are you currently studying at %s\n", &UniversityChoice);   //  first inital route // Using coditional statements to redirect conversation
+			scanf(" %[^\t\n]s", &UniSubject);
+ 
+ 
+			char UniCourseDescription[8000];
+			printf("What does %s enatil\n ", &UniSubject);
+			scanf(" %[^\t\n]s", &UniCourseDescription);
+			printf("Okay that sounds boring let's do something else now.. ");
+ 
+ 
+ 
+ 
+ 
+		}
+ 
+		else if (!strcmp(choice, "no\n"))
+ 
+ 
+		{
+			char TheirStatement;
+			printf("So what do you do instead?");
+			scanf(" %[^\t\n]s", &TheirStatement);
+			printf("Thats nice to hear"); 
+			
+		}
+ 
+	}
+ 
+ 
+ 
+ 
+ 
+ 
+	else if (a == 2)
+	{
+		int b;
+		printf("So we have a choice of 3 subjects to learn from today\n""(1)Biology	  (2)Chemistry	  (3)Maths\n");
+		printf("What subject would you like to learn about today\n");
+		scanf("%d", &b);
+ 
+ 
+		if (b == 1)
+		{
+ 
+			printf("You chose biology\n");
+ 
+			// going to try and implement an actual menu option here but for now a simple conditional if/else is shown as an example 
+ 
+			int BioChoice;
+			printf("Please pick a topic\n");
+			printf("(1)Communication and Homeostasis\n""(2)Respiration\n""(3)Photosynthesis\n""(4)Plant and Animal Responses\n");
+			scanf("%d", &BioChoice);
+ 
+ 
+			if (BioChoice == 1)
+			{
+ 
+				printf("Homeostasis is the regulation of internal environments independently of external environments\n");
+				printf("These include :\n");
+				printf("Temperature\n");
+				printf("Blood glucose concentration\n");
+				printf("Blood salt concentration\n");
+				printf("Water content\n");
+				printf("Blood pressure\n");
+				printf("Blood carbon dioxide partial pressure(blood pH)\n");
+ 
+ 
+ 
+ 
+ 
+				printf("So do you think you learnt anything today with me?");
+ 
+ 
+			}
+		}
+ 
+		else if (b == 2)
+ 
+		{
+ 
+			printf("You chose chemistry\n");
+			printf("Pick a topic\n");
+ 
+		}
+ 
+		else if (b == 3)
+		{
+			printf("Okay so i know nothing about maths, but heres a calculator you can play with \n ");
+			{
+ 
+				int input, a, b, result;
+				char option;
+				do {
+ 
+ 
+ 
+					printf("\nEnter 1 for addition:\n ");					// Basic calculator code from a practice project. Most code was aided by another source not sure of exact ref. 
+																			// I used this calculator when learning how to use a do while function and break cases. 
+					printf("Enter 2 for subtraction:\n ");
+					printf("Enter 3 for multiplication:\n ");
+					printf("Enter 4 for division:\n ");
+ 
+					scanf("%d", &input);
+					printf("Enter a number:\n");
+					scanf("%d", &a);
+					printf("Enter second number:\n");
+					scanf("%d", &b);
+ 
+					switch (input) {
+					case 1: result = a + b;
+						printf("The addition is : %d\n", result);
+						break;
+					case 2: result = a - b;
+						printf("The Substraction is : %d\n", result);
+						break;
+					case 3: result = a * b;
+						printf("The Multiplication is : %d\n", result);
+						break;
+					case 4: result = a / b;
+						printf("The division is : %d\n", result);
+						break;
+ 
+					default: printf("wrong input\n");
+ 
+					}
+					printf("Do you want to continue ? (y/n)\n");
+					option = getche();
+ 
+				} while (option == 'y');
+ 
+				return 0;
+			}
+ 
+		}
+ 
+ 
+ 
+	}
+ 
+	else if (a == 3)
+	{
+ 
+		return 0;
+ 
+	}
+ 
+	return 0;
+}
